@@ -1,0 +1,25 @@
+<!-- DEFAULT TELAVIV -->
+
+<div class="container">
+    <div class="row">
+      <div class="current" *ngIf="currentCity">
+        <h1>{{ currentCity.LocalObservationDateTime | date: 'fullDate' }}</h1>
+        <h1>{{ currentCity.WeatherText }}</h1>
+        <h1>{{ currentCity.Temperature.Metric.Value }}C</h1>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 5 DAY DEFAULT -->
+  <div class="container">
+    <div class="row" *ngIf="currentCity && currentCity.daily">
+      <div class="bigCard bg-light mb-3" style="max-width: 18rem;" *ngFor="let cityForecast of currentCity.daily">
+        <div class="card-header">{{ cityForecast.Date | date: 'fullDate'}}</div>
+        <div class="card-body">
+          <h2 class="card-title">{{ cityForecast.Day.IconPhrase }}</h2>
+          <div class="card-icon"><img src="{{cityForecast.Day.Icon | accuweatherIcon }}"/></div>
+        </div>
+      </div>
+  </div>
+  </div>

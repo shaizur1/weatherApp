@@ -1,0 +1,11 @@
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+body, html {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+}  
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
