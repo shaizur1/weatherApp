@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 export class WeatherService {
   apiKey = 'Dt1hwcMlNx0doXOaZlOVb4yZ3z9hlr8b';
   language = 'en-us';
-  baseApi = 'http://dataservice.accuweather.com';
+  baseApi = 'https://dataservice.accuweather.com';
   autoCompleteSearch = 'locations/v1/cities/autocomplete';
   currentConditions = 'currentconditions/v1';
   fiveDaysforecast = 'forecasts/v1/daily/5day';
