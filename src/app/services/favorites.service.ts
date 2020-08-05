@@ -8,20 +8,5 @@ export class FavoritesService {
 
   favorites: CurrentConditions;
 
-  constructor() {
-    this.favorites = JSON.parse(sessionStorage.getItem('favorites')) || [];
-  }
-
-  getFavorite() {
-    return this.favorites;
-  }
-
-  setFavorite() {
-    sessionStorage.setItem('products', JSON.stringify(this.favorites));
-  }
-
-  addFavorite() {
-
-    this.setFavorite();
-  }
+  constructor() { }
 }

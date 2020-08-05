@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FavoritesService } from '../../services/favorites.service';
-import { CurrentConditions } from '../../models/current-conditions';
 
 @Component({
   selector: 'app-favorites',
@@ -9,15 +7,8 @@ import { CurrentConditions } from '../../models/current-conditions';
 })
 export class FavoritesComponent implements OnInit {
 
-  favorites: CurrentConditions;
-
-  constructor(private favoritesService: FavoritesService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.updateFavorites();
-  }
-
-  updateFavorites() {
-    this.favorites = this.favoritesService.getFavorite();
   }
 }
