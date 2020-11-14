@@ -7,7 +7,6 @@ import { HttpClient } from '@angular/common/http';
 export class WeatherService {
 
   apiKey = 'XXhoAfdvhAdPOhjR1CbGglFN2VJMyLHa';
-
   language = 'en-us';
   baseApi = 'https://dataservice.accuweather.com';
   autoCompleteSearch = 'locations/v1/cities/autocomplete';
