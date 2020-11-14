@@ -11,5 +11,5 @@ export interface CurrentConditions {
     Temperature: Temperature;
     MobileLink: string;
     Link: string;
-    daily: object [];
+    Daily: object [];
   }

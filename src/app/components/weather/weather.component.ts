@@ -1,6 +1,5 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { WeatherService } from '../../services/weather.service';
-import { Subscription } from 'rxjs';
 import { FormControl}  from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
@@ -13,11 +12,8 @@ import { DailyForecasts, FiveDaysForecast } from '../../models/five-days-forcast
   templateUrl: './weather.component.html',
   styleUrls: ['./weather.component.scss']
 })
-export class WeatherComponent implements OnInit, OnDestroy {
+export class WeatherComponent implements OnInit {
 
-  weatherSub: Subscription;
-  weatherWeekSub: Subscription;
-  autocompleteSub: Subscription;
   search: AutoCompleteSearch[];
   cities = [];
   // defualt city : tel aviv
@@ -36,28 +32,22 @@ export class WeatherComponent implements OnInit, OnDestroy {
   }
 
   currentConditions() {
-    this.weatherSub = this.weatherService.getCurrentConditions(this.cityID).subscribe((data: CurrentConditions) => {
+    this.weatherService.getCurrentConditions(this.cityID).subscribe((data: CurrentConditions) => {
       this.currentCity = data[0];
     });
-    this.weatherWeekSub = this.weatherService.getFiveDaysForecast(this.cityID).subscribe((data: FiveDaysForecast) => {
-      this.currentCity.daily = data.DailyForecasts;
+    this.weatherService.getFiveDaysForecast(this.cityID).subscribe((data: FiveDaysForecast) => {
+      this.currentCity.Daily = data.DailyForecasts;
     });
   }
 
   autoCompleteSearch(value: string): string[]{
-    this.autocompleteSub = this.weatherService.getAutoCompleteSerach(value).subscribe((data: any) => {
+    this.weatherService.getAutoCompleteSerach(value).subscribe((data: any) => {
       if(!data) return [];
       this.cities = data.map(item => item.LocalizedName || '');
       this.cityID = data[0].Key;
       return data;
     });
     return this.cities;
-  }
-
-  ngOnDestroy() {
-    this.weatherSub.unsubscribe();
-    this.weatherWeekSub.unsubscribe();
-    this.autocompleteSub.unsubscribe();
   }
 
 }

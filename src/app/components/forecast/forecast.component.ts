@@ -26,14 +26,13 @@ export class ForecastComponent implements OnInit, OnDestroy {
       this.currentCity = data[0];
     })
     this.weatherWeekSub = this.weatherService.getFiveDaysForecast(this.cityID).subscribe((data: FiveDaysForecast) => {
-      this.currentCity.daily = data.DailyForecasts;
+      this.currentCity.Daily = data.DailyForecasts;
     });
   }
 
   ngOnDestroy() {
       this.weatherWeekSub.unsubscribe();
       this.weatherSub.unsubscribe();
-
   }
 
 }

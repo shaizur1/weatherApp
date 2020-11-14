@@ -1,5 +1,4 @@
 import { Pipe, PipeTransform } from '@angular/core';
-
 export const icons = `https://developer.accuweather.com/sites/default/files`;
 
 @Pipe({

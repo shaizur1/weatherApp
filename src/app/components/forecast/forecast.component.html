@@ -13,8 +13,8 @@
 
   <!-- 5 DAY DEFAULT -->
   <div class="container">
-    <div class="row" *ngIf="currentCity && currentCity.daily">
-      <div class="bigCard bg-light mb-3" style="max-width: 18rem;" *ngFor="let cityForecast of currentCity.daily">
+    <div class="row" *ngIf="currentCity && currentCity.Daily">
+      <div class="bigCard bg-light mb-3" style="max-width: 18rem;" *ngFor="let cityForecast of currentCity.Daily">
         <div class="card-header">{{ cityForecast.Date | date: 'fullDate'}}</div>
         <div class="card-body">
           <h2 class="card-title">{{ cityForecast.Day.IconPhrase }}</h2>
